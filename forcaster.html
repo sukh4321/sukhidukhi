@@ -1,0 +1,103 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="css/curency.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+</head>
+
+<body>
+    <!--header-->
+ <header class="header_sec">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                <div class="toggle" onclick="myFunction()"><span class="bars"></span></div>
+                <ul class="main-link" id="myDIV">
+                    <li class="item"><a href="index.html">Home</a></li>
+                    <li class="item"><a href="#">Skills</a>
+                        <ul class="sub-link">
+                            <li class="item"><a href="forcaster.html" target="_blank">Forecaster</a></li>
+                            <li class="item"><a href="currency.html" target="_blank">Currency Converter</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!--end header-->
+
+    <!-- Currency Converter -->
+
+
+
+    <section class=" pt-100 ">
+
+        <div class="container">
+		 <div class="straight_heading text-center">
+            <h2><span class="blue-txt">fore</span>caster</h2>
+        </div>
+		<div class="graph_main pb-100">
+            <div id="curve_chart" style="width: 100%; height: 500px"></div>
+</div>
+
+        </div>
+    </section>
+	
+	
+	
+ <footer>
+        <p>© 2023 copyright all right reserved</p>
+    </footer>
+     <script>
+        function myFunction() {
+            var element = document.getElementById("myDIV");
+            element.classList.toggle("active");
+        }
+
+    </script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Gas',`Electricity`, `Liquid fuels`,'Motor fuel & Oil'],
+          ['1996',  43.3, 62.5,   33.3,  47.0],
+		  ['1999',  41.7,  56.1,  22.6,  55.3],
+          ['2002',  44.1,  54.4,  34.3,  60.6],
+		  ['2005',  53.6,  63.0,  54.3,  69.1],
+		  ['2008',  80.3,  89.2,  97.2,  90.2],
+		  ['2011',  104.6,  102.9,  125.3,  111.4],
+		  ['2014',  138.8,  129.2,  124.0,  111.7],
+		  ['2017',  122.6,  128.2,  93.5,  102.3],
+		  ['2020',  121.0,  160.3,  99.7,  106.6],
+		   ['2022',  218.9,   260.2, 209.6,  148.5]
+		  
+        ]);
+
+        var options = {
+          title: 'Energy Prices Domestic Prices',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+</body>
+
+</html>
+
+ 
+    
